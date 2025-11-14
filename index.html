@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NEO PILL</title>
-    <link rel="stylesheet" href="style.css?v=2" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEO</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <!-- Matrix Background -->
-    <canvas id="matrix"></canvas>
+  <!-- Neon Matrix Background -->
+  <canvas id="matrix"></canvas>
 
-    <div class="container">
-        <img class="logo" src="Assets/NEO.png" alt="NEO Pill Logo">
+  <!-- Main NEO content -->
+  <div class="container">
+    <img class="logo" src="Assets/NEO.png" alt="NEO logo" />
 
-        <h1>NEO</h1>
-        <p class="tagline">Follow the white rabbit...</p>
+    <h1>NEO</h1>
+    <p class="tagline">Follow the white rabbit...</p>
 
-        <p class="mint">
-            Mint Address:<br>
-            <span class="address">
-                J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
-            </span>
-        </p>
-    </div>
+    <p class="mint">
+      Mint Address:<br />
+      <span class="address">
+        J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
+      </span>
+    </p>
 
-    <script src="matrix.js?v=2"></script>
+    <p class="supply">
+      Current Supply:
+      <span class="highlight">83.33M NEO</span><br />
+      Burned:
+      <span class="burned">100,000,000 NEO</span>
+    </p>
+
+    <p class="links">
+      <a
+        href="https://orb.helius.dev/tx/23BPjNN8m5FpPq4oH3xppPhQF8uU6s48qTd76Jrri9WsWSZ3ytAAti3sgice7pj2oLYZ8un1xu9dLGbb1jJ9n3md?tab=summary&amp;cluster=mainnet-beta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View burn transaction on-chain
+      </a>
+    </p>
+  </div>
+
+  <script src="matrix.js"></script>
 </body>
 </html>
