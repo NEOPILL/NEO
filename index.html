@@ -1,64 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NEO</title>
-    <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEO</title>
+<link rel="stylesheet" href="style.css">
+<script src="matrix.js" defer></script>
 </head>
 
 <body>
 
-    <!-- MATRIX BACKGROUND -->
-    <canvas id="matrix"></canvas>
+<canvas id="matrix"></canvas>
 
-    <!-- WHITE RABBIT LINK -->
-    <a href="whitepaper.html" class="white-rabbit-link">
-        <img src="Assets/rabbit.png" alt="White Rabbit" />
-    </a>
+<div class="content">
 
-    <div class="container">
-        <img class="logo" src="Assets/NEO.png" alt="NEO Logo">
+    <img src="Assets/neopill.png" alt="NEO Pill" class="pill-logo">
 
-        <h1>NEO</h1>
-        <p class="tagline">Follow the white rabbit...</p>
+    <h1>NEO</h1>
+    <p class="subtitle">Follow the white rabbit...</p>
 
-        <p class="mint-label">Mint Address:</p>
-        <p class="address">J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S</p>
+    <p><strong>Mint Address:</strong><br>
+    J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S</p>
 
-        <p class="supply">
-            Current Supply: <span id="supply">Loading…</span><br>
-            Burned: <span id="burned">Loading…</span>
-        </p>
+    <p>
+        <strong>Current Supply:</strong> 83.33M NEO<br>
+        <strong>Burned:</strong> 100,000,284.789 NEO
+    </p>
 
-        <p><a class="burn-link" href="https://orb.helius.dev/address/J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S" target="_blank">
-            View burn transaction on-chain
-        </a></p>
-    </div>
+    <a class="burn-link" href="https://orb.helius.dev/tx/23BPjNN8m5FpPq4oH3xppPhQF8uU6s48qTd76Jrri9WsWSZ3ytAAti3sgice7pj2oLYZ8un1xu9dLGbb1jJ9n3md"
+       target="_blank">View burn transaction on-chain</a>
 
-    <script src="matrix.js"></script>
+</div>
 
-    <script>
-        async function updateSupply() {
-            try {
-                const url = "https://api.helius.xyz/v0/token-metadata?tokenAddress=J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S";
-                const res = await fetch(url);
-                const data = await res.json();
-
-                const supply = data?.onChainData?.supply?.toLocaleString() || "Error";
-                document.getElementById("supply").textContent = supply + " NEO";
-
-                const burned = 100000284.789; 
-                document.getElementById("burned").textContent = burned.toLocaleString() + " NEO";
-
-            } catch (err) {
-                document.getElementById("supply").textContent = "Error";
-                document.getElementById("burned").textContent = "Error";
-            }
-        }
-
-        updateSupply();
-    </script>
+<!-- ⭐ White Rabbit Button (Top Right) -->
+<a href="whitepaper.html">
+    <img src="Assets/rabbit.png" class="rabbit-btn" alt="White Rabbit">
+</a>
 
 </body>
 </html>
