@@ -1,105 +1,98 @@
-/* FORCE canvas behind everything */
-#matrix {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -9999 !important;
-    background: black;
-    pointer-events: none !important;
-}
-
-/* General page */
+/* Reset */
 body {
     margin: 0;
     padding: 0;
     background: black;
-    font-family: 'Orbitron', sans-serif;
-    color: white;
-    text-align: center;
     overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
 }
 
-/* Container sits ABOVE canvas */
+/* Center container */
 .container {
     position: relative;
-    z-index: 9999; /* slam it on top */
-    padding-top: 20vh;
+    top: 120px;
+    z-index: 5;
 }
 
-/* Pill logo */
+/* NEO pill logo */
 .logo {
-    width: 200px;
+    width: 180px;
     height: auto;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 25px #ff00ff);
+    filter: drop-shadow(0 0 15px #ff00ff);
 }
 
+/* Title */
 h1 {
     font-size: 60px;
     color: #ff00ff;
-    text-shadow: 0 0 25px #ff00ff;
-    margin: 0;
+    text-shadow: 0 0 15px #ff00ff;
 }
 
+/* Tagline */
 .tagline {
     font-size: 22px;
-    margin-top: 10px;
-    color: #ffffffcc;
+    margin-top: -15px;
 }
 
-/* Mint */
-.mint {
-    font-size: 18px;
-    margin-top: 25px;
-}
-
+/* Mint address */
 .address {
-    display: inline-block;
-    margin-top: 8px;
-    font-family: monospace;
-    color: #ffe6ff;
-    text-shadow: 0 0 12px #ff00ff;
+    font-size: 16px;
+    margin-top: -5px;
+    color: #ddd;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 42px;
-    }
-    .logo {
-        width: 150px;
+/* Supply text */
+.supply {
+    margin-top: 20px;
+    font-size: 18px;
+}
 
-        /* White rabbit button in the top-right corner */
+/* On-chain link */
+.burn-link {
+    color: #5da0ff;
+    text-decoration: none;
+}
+
+/* MATRIX canvas */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+/* WHITE RABBIT – top-right corner */
 .white-rabbit-link {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
 }
 
 .white-rabbit-link img {
-  width: 70px;   /* adjust smaller/bigger if you want */
-  height: auto;
-  filter: drop-shadow(0 0 12px #ff00ff);
-  cursor: pointer;
-  animation: rabbit-pulse 2s ease-in-out infinite;
+    width: 70px;
+    height: auto;
+    filter: drop-shadow(0 0 12px #ff00ff);
+    cursor: pointer;
+    animation: rabbitPulse 2s infinite ease-in-out;
 }
 
-@keyframes rabbit-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.9;
-  
+/* Pulse animation */
+@keyframes rabbitPulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
 
-    }
+/* MOBILE FIXES */
+@media screen and (max-width: 600px) {
+    .logo { width: 140px; }
+    h1 { font-size: 45px; }
+    .tagline { font-size: 18px; }
+    .address { font-size: 12px; }
+    .white-rabbit-link img { width: 55px; }
 }
