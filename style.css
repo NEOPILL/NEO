@@ -1,61 +1,10 @@
-/* Reset */
 body {
     margin: 0;
-    padding: 0;
+    overflow: hidden;
     background: black;
-    overflow-x: hidden;
     font-family: Arial, sans-serif;
-    text-align: center;
-    color: white;
 }
 
-/* Center container */
-.container {
-    position: relative;
-    top: 120px;
-    z-index: 5;
-}
-
-/* NEO pill logo */
-.logo {
-    width: 180px;
-    height: auto;
-    filter: drop-shadow(0 0 15px #ff00ff);
-}
-
-/* Title */
-h1 {
-    font-size: 60px;
-    color: #ff00ff;
-    text-shadow: 0 0 15px #ff00ff;
-}
-
-/* Tagline */
-.tagline {
-    font-size: 22px;
-    margin-top: -15px;
-}
-
-/* Mint address */
-.address {
-    font-size: 16px;
-    margin-top: -5px;
-    color: #ddd;
-}
-
-/* Supply text */
-.supply {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-/* On-chain link */
-.burn-link {
-    color: #5da0ff;
-    text-decoration: none;
-}
-
-/* MATRIX canvas */
 #matrix {
     position: fixed;
     top: 0;
@@ -65,34 +14,52 @@ h1 {
     z-index: 1;
 }
 
-/* WHITE RABBIT – top-right corner */
-.white-rabbit-link {
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin-top: 100px;
+    color: white;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.pill {
+    width: 150px;
+    filter: drop-shadow(0 0 10px #ff00ff);
+}
+
+.neon-title {
+    font-size: 70px;
+    color: #ff00ff;
+    text-shadow: 0 0 20px #ff00ff;
+}
+
+.subtext {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.label {
+    font-size: 18px;
+}
+
+.burn-link {
+    color: #66aaff;
+}
+
+/* ✔ ORIGINAL rabbit size restored */
+.rabbit-btn {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 10;
-}
-
-.white-rabbit-link img {
-    width: 70px;
-    height: auto;
-    filter: drop-shadow(0 0 12px #ff00ff);
+    width: 65px;
+    z-index: 2000;
     cursor: pointer;
-    animation: rabbitPulse 2s infinite ease-in-out;
+    filter: drop-shadow(0 0 12px #ff00ff);
+    transition: transform 0.2s;
 }
 
-/* Pulse animation */
-@keyframes rabbitPulse {
-    0% { transform: scale(1); opacity: 0.9; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.9; }
-}
-
-/* MOBILE FIXES */
-@media screen and (max-width: 600px) {
-    .logo { width: 140px; }
-    h1 { font-size: 45px; }
-    .tagline { font-size: 18px; }
-    .address { font-size: 12px; }
-    .white-rabbit-link img { width: 55px; }
+.rabbit-btn:hover {
+    transform: scale(1.1);
 }
