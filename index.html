@@ -7,50 +7,42 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Pink matrix background -->
+  <!-- Neon pink code background -->
   <canvas id="matrix"></canvas>
 
+  <!-- White rabbit link (your neon bunny) -->
+  <a class="white-rabbit-link" href="whitepaper.html" aria-label="View NEO whitepaper">
+    <img src="Assets/rabbit.png" alt="White Rabbit" />
+  </a>
+
   <!-- Main content -->
-  <div class="content">
-    <!-- Top bar with white rabbit link -->
-    <header class="top-bar">
-      <a href="whitepaper.html" class="rabbit-link" aria-label="Read the NEO whitepaper">
-        <span class="rabbit-icon">🐇</span>
-        <span class="rabbit-text">Whitepaper</span>
+  <div class="container">
+    <img class="logo" src="Assets/NEO.png" alt="NEO Pill Logo" />
+
+    <h1>NEO</h1>
+    <p class="tagline">Follow the white rabbit...</p>
+
+    <p class="mint">
+      Mint Address:<br />
+      <span class="address">
+        J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
+      </span>
+    </p>
+
+    <p class="supply">
+      Current Supply: <span id="supply-value">83.33M NEO</span><br />
+      Burned: <span id="burn-value">100,000,000 NEO</span>
+    </p>
+
+    <p class="tx-link">
+      <a
+        href="https://orb.helius.dev/tx/23BPjNN8m5FpPq4oH3xppPhQF8uU6s48qTd76Jrri9WsWSZ3ytAAti3sgice7pj2oLYZ8un1xu9dLGbb1jJ9n3md?tab=summary&cluster=mainnet-beta"
+        target="_blank"
+        rel="noopener"
+      >
+        View burn transaction on-chain
       </a>
-    </header>
-
-    <main class="hero">
-      <img src="Assets/NEO.png" alt="NEO Logo" class="logo" />
-
-      <h1>NEO</h1>
-      <p class="tagline">Follow the white rabbit...</p>
-
-      <section class="details">
-        <p class="label">Mint Address:</p>
-        <p class="address">
-          J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
-        </p>
-
-        <!-- Static numbers – easy to tweak later -->
-        <p class="supply">
-          Current Supply: <span>83.33M NEO</span>
-        </p>
-        <p class="burned">
-          Burned: <span>100,000,284.789 NEO</span>
-        </p>
-
-        <p class="onchain-link">
-          <a
-            href="https://orb.helius.dev/tx/23BPjNN8m5FpPq4oH3xppPhQF8uU6s48qTd76Jrri9WsWSZ3ytAAti3sgice7pj2oLYZ8un1xu9dLGbb1jJ9n3md?tab=summary&cluster=mainnet-beta"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View burn transaction on-chain
-          </a>
-        </p>
-      </section>
-    </main>
+    </p>
   </div>
 
   <script src="matrix.js"></script>
