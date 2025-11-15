@@ -1,132 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NEO</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEO</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <!-- Pink matrix background -->
+  <canvas id="matrix"></canvas>
 
-<!-- Matrix Background -->
-<canvas id="matrix"></canvas>
+  <!-- Main content -->
+  <div class="content">
+    <!-- Top bar with white rabbit link -->
+    <header class="top-bar">
+      <a href="whitepaper.html" class="rabbit-link" aria-label="Read the NEO whitepaper">
+        <span class="rabbit-icon">🐇</span>
+        <span class="rabbit-text">Whitepaper</span>
+      </a>
+    </header>
 
-<div class="container">
-    <img class="logo" src="Assets/NEO.png" alt="NEO Logo">
+    <main class="hero">
+      <img src="Assets/NEO.png" alt="NEO Logo" class="logo" />
 
-    <h1>NEO</h1>
-    <p class="tagline">Follow the white rabbit...</p>
+      <h1>NEO</h1>
+      <p class="tagline">Follow the white rabbit...</p>
 
-    <p class="mint">
-        <b>Mint Address:</b><br>
-        <span class="address">J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S</span>
-    </p>
+      <section class="details">
+        <p class="label">Mint Address:</p>
+        <p class="address">
+          J8xvALW2dur2ldtCmN6Hfrg5P66RwqhiBuCHcIetmr8S
+        </p>
 
-    <p class="stats">
-        <span id="supply">Current Supply: Loading...</span><br>
-        <span id="burned">Burned: Loading...</span>
-    </p>
+        <!-- Static numbers – easy to tweak later -->
+        <p class="supply">
+          Current Supply: <span>83.33M NEO</span>
+        </p>
+        <p class="burned">
+          Burned: <span>100,000,284.789 NEO</span>
+        </p>
 
-    <!-- White rabbit button -->
-    <div class="rabbit-wrapper">
-        <img src="Assets/rabbit.png" class="rabbit" onclick="location.href='whitepaper.html'">
-    </div>
-</div>
+        <p class="onchain-link">
+          <a
+            href="https://orb.helius.dev/tx/23BPjNN8m5FpPq4oH3xppPhQF8uU6s48qTd76Jrri9WsWSZ3ytAAti3sgice7pj2oLYZ8un1xu9dLGbb1jJ9n3md?tab=summary&cluster=mainnet-beta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View burn transaction on-chain
+          </a>
+        </p>
+      </section>
+    </main>
+  </div>
 
-<script src="matrix.js"></script>
-
-<script>
-// === LIVE BURN TRACKER ===
-
-async function fetchBurnData() {
-    try {
-        const rpc = "https://api.mainnet-beta.solana.com";
-
-        // Burn wallet (incinerator)
-        const burnWallet = "1nc1nerator111111111111111111111111111111";
-
-        // Token mint
-        const mint = "J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S";
-
-        const body = {
-            jsonrpc: "2.0",
-            id: 1,
-            method: "getSignaturesForAddress",
-            params: [burnWallet, { limit: 100 }]
-        };
-
-        const sigs = await fetch(rpc, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body)
-        }).then(r => r.json());
-
-        let burnedTotal = 0;
-
-        for (let s of sigs.result) {
-            let txBody = {
-                jsonrpc: "2.0",
-                id: 1,
-                method: "getTransaction",
-                params: [s.signature, { encoding: "jsonParsed" }]
-            };
-
-            let tx = await fetch(rpc, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(txBody)
-            }).then(r => r.json());
-
-            if (!tx.result) continue;
-
-            const inst = tx.result.transaction.message.instructions;
-
-            for (let i of inst) {
-                if (
-                    i.parsed &&
-                    i.parsed.type === "transferChecked" &&
-                    i.parsed.info.mint === mint &&
-                    i.parsed.info.destination === burnWallet
-                ) {
-                    burnedTotal += Number(i.parsed.info.amount);
-                }
-            }
-        }
-
-        const burnedNeo = burnedTotal / 1_000_000;
-        const currentSupply = 183.33 - burnedNeo; // starting supply after your burn
-
-        document.getElementById("burned").innerHTML =
-            `Burned: ${burnedNeo.toFixed(3)} NEO`;
-
-        document.getElementById("supply").innerHTML =
-            `Current Supply: ${currentSupply.toFixed(3)} NEO`;
-
-    } catch (e) {
-        document.getElementById("burned").innerHTML =
-            "Burned: Error fetching";
-    }
-}
-
-fetchBurnData();
-</script>
-
-<style>
-/* White Rabbit Glow */
-.rabbit-wrapper { margin-top: 15px; }
-.rabbit {
-    width: 90px;
-    cursor: pointer;
-    filter: drop-shadow(0 0 10px #ff00ff);
-    animation: pulse 1.5s infinite;
-}
-@keyframes pulse {
-    0% { filter: drop-shadow(0 0 3px #ff00ff); }
-    50% { filter: drop-shadow(0 0 18px #ff00ff); }
-    100% { filter: drop-shadow(0 0 3px #ff00ff); }
-}
-</style>
-
+  <script src="matrix.js"></script>
 </body>
 </html>
