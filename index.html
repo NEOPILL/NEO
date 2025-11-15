@@ -26,9 +26,10 @@
         <p class="mint-label">Mint Address:</p>
         <p class="address">J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S</p>
 
+        <!-- STATIC SUPPLY + BURN -->
         <p class="supply">
-            Current Supply: <span id="supply">Loading…</span><br>
-            Burned: <span id="burned">Loading…</span>
+            Current Supply: <span id="supply">83.33M NEO</span><br>
+            Burned: <span id="burned">100,000,284.789 NEO</span>
         </p>
 
         <p><a class="burn-link" href="https://orb.helius.dev/address/J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S" target="_blank">
@@ -37,28 +38,6 @@
     </div>
 
     <script src="matrix.js"></script>
-
-    <script>
-        async function updateSupply() {
-            try {
-                const url = "https://api.helius.xyz/v0/token-metadata?tokenAddress=J8xvALW2dur21dtCmN6Hfrg5P66RwqhiBuCHcIetmr8S";
-                const res = await fetch(url);
-                const data = await res.json();
-
-                const supply = data?.onChainData?.supply?.toLocaleString() || "Error";
-                document.getElementById("supply").textContent = supply + " NEO";
-
-                const burned = 100000000; 
-                document.getElementById("burned").textContent = burned.toLocaleString() + " NEO";
-
-            } catch (err) {
-                document.getElementById("supply").textContent = "Error";
-                document.getElementById("burned").textContent = "Error";
-            }
-        }
-
-        updateSupply();
-    </script>
 
 </body>
 </html>
