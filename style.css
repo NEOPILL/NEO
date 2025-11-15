@@ -70,5 +70,36 @@ h1 {
     }
     .logo {
         width: 150px;
+
+        /* White rabbit button in the top-right corner */
+.white-rabbit-link {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.white-rabbit-link img {
+  width: 70px;   /* adjust smaller/bigger if you want */
+  height: auto;
+  filter: drop-shadow(0 0 12px #ff00ff);
+  cursor: pointer;
+  animation: rabbit-pulse 2s ease-in-out infinite;
+}
+
+@keyframes rabbit-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
     }
 }
