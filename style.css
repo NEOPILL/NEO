@@ -9,6 +9,20 @@ body {
     color: white;
 }
 
+.buy-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: 1px solid #ff00ff;
+    border-radius: 8px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+    background: rgba(255,0,255,0.1);
+    transition: 0.3s;
+}
+.buy-btn:hover {
+    background: rgba(255,0,255,0.3);
+}
+
 /* Center container */
 .container {
     position: relative;
