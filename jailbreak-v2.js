@@ -12,6 +12,7 @@ const sequence = [
     "installing Neo token platform...",
     "Neurolink system complete.
     "Rebooting system..."
+
 ];
 
 // CONFIRMED WORKING FUNCTION
