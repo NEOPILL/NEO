@@ -1,52 +1,42 @@
-<script>
 const terminal = document.getElementById("terminal");
 
 const sequence = [
-    "Loading NEO bootstrap v1.33...",
     "Patching kernel...",
-    "Injecting NEO firmware...",
-    "Initializing neural uplink...",
+    "Loading firmware modules...",
     "Attempting full brain scan...",
-    ">>> Brain scan complete.",
-    "Deploying custom OS NEONIX v0.1...",
-    "Rebooting system...",
-    "Welcome to NEONIX."
+    "Brain scan complete.",
+    "Installing custom OS...",
+    "Finalizing changes...",
+    "Rebooting system..."
 ];
 
-let delayBetweenLines = 2200;
+// CONFIRMED WORKING FUNCTION
+function typeLineWithSpinner(text, delay) {
+    return new Promise((resolve) => {
+        terminal.innerHTML += text;
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+        const spinner = document.createElement("span");
+        spinner.classList.add("spinner");
+        terminal.appendChild(spinner);
 
-async function typeLineWithSpinner(text) {
-    const spinnerFrames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
-    let frameIndex = 0;
-
-    return new Promise(async resolve => {
-        let running = true;
-
-        const spinnerInterval = setInterval(() => {
-            terminal.innerHTML = terminal.innerHTML.replace(/.$/, spinnerFrames[frameIndex]);
-            frameIndex = (frameIndex + 1) % spinnerFrames.length;
-        }, 90);
-
-        terminal.innerHTML += text + " ";
-
-        await sleep(delayBetweenLines);
-
-        clearInterval(spinnerInterval);
-        terminal.innerHTML = terminal.innerHTML.replace(/.$/, "✓");
-        resolve();
+        setTimeout(() => {
+            spinner.remove();
+            terminal.innerHTML += " ✓\n";
+            resolve();
+        }, delay);
     });
 }
 
-async function animateSequence() {
-    for (let line of sequence) {
-        await typeLineWithSpinner(line);
-        terminal.innerHTML += "\n";
+// RUN SEQUENCE
+async function runSequence() {
+    for (let i = 0; i < sequence.length; i++) {
+        await typeLineWithSpinner(sequence[i], 2000);  // 2 seconds each
     }
+
+    terminal.innerHTML += "\nSystem unlocked.\nWelcome to NEO.\n";
 }
+
+runSequence();
 
 animateSequence();
 </script>
