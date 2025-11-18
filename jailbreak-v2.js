@@ -10,8 +10,8 @@ const sequence = [
     "Neurolink detected....",
     "Installing firmware update...",
     "installing Neo token platform...",
-    "Neurolink system complete.
-    "Rebooting system..."
+    "Neurolink system complete.",
+    "Rebooting system...",
 
 ];
 
