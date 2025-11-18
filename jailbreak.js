@@ -3,10 +3,15 @@ const terminal = document.getElementById("terminal");
 const sequence = [
     "Patching kernel...",
     "Loading firmware modules...",
-    "Attempting full brain scan...",
-    "Brain scan..",
-    "Installing custom OS...",
-    "Finalizing changes...",
+    "Setting up neurolink...",
+    "Neurolink status. ..",
+    "Injecting linkOS...",
+    "Finalizing link...",
+    "Neurolink detected....",
+    "Installing firmware update...",
+    "installing Neo token platform...",
+    "Setting Neo token asset to buy....",
+    "Neurolink system complete.
     "Rebooting system..."
 ];
 
@@ -33,7 +38,7 @@ async function runSequence() {
         await typeLineWithSpinner(sequence[i], 2000);  // 2 seconds each
     }
 
-    terminal.innerHTML += "\nSystem unlocked.\nOpen your eyes!.\n";
+    terminal.innerHTML += "\nSystem unlocked....\nOpen your eyes!.\n";
 }
 
 runSequence();
