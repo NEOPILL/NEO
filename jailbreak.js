@@ -4,7 +4,7 @@ const sequence = [
     "Patching kernel...",
     "Loading firmware modules...",
     "Attempting full brain scan...",
-    "Brain scan complete.",
+    "Brain scan..",
     "Installing custom OS...",
     "Finalizing changes...",
     "Rebooting system..."
