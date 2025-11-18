@@ -29,3 +29,12 @@ body {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
+/* MOBILE FIXES */
+@media screen and (max-width: 600px) {
+    .logo { width: 140px; }
+    h1 { font-size: 45px; }
+    .tagline { font-size: 18px; }
+    .address { font-size: 12px; }
+    .white-rabbit-link img { width: 55px; }
+}
