@@ -38,5 +38,3 @@ async function runSequence() {
 
 runSequence();
 
-animateSequence();
-</script>
