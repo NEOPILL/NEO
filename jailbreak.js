@@ -38,7 +38,7 @@ async function runSequence() {
         await typeLineWithSpinner(sequence[i], 2000);  // 2 seconds each
     }
 
-    terminal.innerHTML += "\nSystem unlocked....\nOpen your eyes!.\n";
+    terminal.innerHTML += "\nSystem intergration successful....\nWelcome to Neo!.\n";
 }
 
 runSequence();
